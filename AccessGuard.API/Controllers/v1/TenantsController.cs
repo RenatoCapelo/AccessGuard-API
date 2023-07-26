@@ -3,9 +3,9 @@ using AcessGuard_API.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AcessGuard_API.Controllers
+namespace AcessGuard_API.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Route("v1/[controller]")]
     [ApiController]
     public class TenantsController : ControllerBase
     {
@@ -32,7 +32,7 @@ namespace AcessGuard_API.Controllers
         [HttpPut]
         public async Task<IActionResult> Put(Tenant tenant)
         {
-            if(_tenantRepository.Get(tenant.Id) is null)
+            if (_tenantRepository.Get(tenant.Id) is null)
             {
                 return BadRequest();
             }
