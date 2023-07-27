@@ -7,14 +7,14 @@ using System.Data.Common;
 
 namespace AccessGuard.Tests.RepositoryTests
 {
-    public class RepositoryTests : IDisposable
+    public class TenantRepositoryTests : IDisposable
     {
         private AccessGuardDBContext _dbContext;
         private TenantRepository _tenantRepository;
 
         private readonly DbConnection _connection;
 
-        public RepositoryTests()
+        public TenantRepositoryTests()
         {
             _connection = new SqliteConnection("Filename=:memory:");
             _connection.Open();
