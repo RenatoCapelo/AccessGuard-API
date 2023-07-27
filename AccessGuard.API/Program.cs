@@ -1,6 +1,6 @@
 using AccessGuard_API.Data;
 using AcessGuard_API.Middleware;
-using AcessGuard_API.Repositories;
+using AcessGuard_API.Repositories.Tenants;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Serilog;

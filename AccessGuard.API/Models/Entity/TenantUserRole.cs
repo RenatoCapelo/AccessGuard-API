@@ -1,4 +1,4 @@
-﻿namespace AccessGuard_API.Models
+﻿namespace AcessGuard_API.Models.Entity
 {
     public class TenantUserRole
     {

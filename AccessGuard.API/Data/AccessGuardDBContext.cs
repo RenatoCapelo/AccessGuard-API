@@ -1,5 +1,4 @@
-﻿using AccessGuard_API.Models;
-using AcessGuard_API.Models;
+﻿using AcessGuard_API.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 

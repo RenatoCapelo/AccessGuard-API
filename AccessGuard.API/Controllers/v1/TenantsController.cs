@@ -1,5 +1,5 @@
-﻿using AccessGuard_API.Models;
-using AcessGuard_API.Repositories;
+﻿using AcessGuard_API.Models.Entity;
+using AcessGuard_API.Repositories.Tenants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿namespace AccessGuard_API.Models
+﻿namespace AcessGuard_API.Models.Entity
 {
     public class Tenant
     {
@@ -6,5 +6,6 @@
         public string TenantName { get; set; } = null!;
 
         public ICollection<Location>? Locations { get; set; }
+        public ICollection<TenantUser>? TenantUsers { get; set; }
     }
 }
