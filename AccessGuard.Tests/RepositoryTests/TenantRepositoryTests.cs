@@ -1,9 +1,4 @@
-using AccessGuard_API.Data;
-using AcessGuard_API.Models.Entity;
 using AcessGuard_API.Repositories.Tenants;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
 
 namespace AccessGuard.Tests.RepositoryTests
 {

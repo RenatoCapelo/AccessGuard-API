@@ -1,4 +1,5 @@
 ﻿using AccessGuard_API.Data;
+using AcessGuard_API.Exceptions;
 using AcessGuard_API.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 

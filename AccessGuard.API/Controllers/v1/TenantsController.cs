@@ -9,9 +9,9 @@ namespace AcessGuard_API.Controllers.v1
     [ApiController]
     public class TenantsController : ControllerBase
     {
-        private readonly TenantRepository _tenantRepository;
+        private readonly ITenantRepository _tenantRepository;
 
-        public TenantsController(TenantRepository tenantRepository)
+        public TenantsController(ITenantRepository tenantRepository)
         {
             _tenantRepository = tenantRepository;
         }

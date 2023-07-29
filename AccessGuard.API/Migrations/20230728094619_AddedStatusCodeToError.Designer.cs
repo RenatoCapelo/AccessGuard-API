@@ -3,6 +3,7 @@ using System;
 using AccessGuard_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AccessGuard_API.Migrations
 {
     [DbContext(typeof(AccessGuardDBContext))]
-    partial class AccessGuardDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230728094619_AddedStatusCodeToError")]
+    partial class AddedStatusCodeToError
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

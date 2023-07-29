@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AccessGuardDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("AccessGuardDB")!));
 
-builder.Services.AddScoped<TenantRepository>();
+builder.Services.AddScoped<ITenantRepository,TenantRepository>();
 builder.Services.AddTransient<AccessGuardExceptionMiddleware>();
 
 var app = builder.Build();

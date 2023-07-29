@@ -4,6 +4,7 @@
     {
         public string Id { get; set; } = null!;
         public string ErrorMessage { get; set; } = null!;
+        public int HttpStatusCode { get; set; } = 400;
 
     }
 }
