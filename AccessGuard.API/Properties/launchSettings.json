@@ -15,7 +15,7 @@
       "publishAllPorts": true,
       "useSSL": true
     },
-    "AcessGuard.API": {
+    "AccessGuard.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

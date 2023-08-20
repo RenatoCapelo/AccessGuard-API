@@ -1,7 +1,7 @@
 using AccessGuard_API.Data;
-using AcessGuard_API.Middleware;
-using AcessGuard_API.Repositories.Errors;
-using AcessGuard_API.Repositories.Tenants;
+using AccessGuard_API.Middleware;
+using AccessGuard_API.Repositories.Errors;
+using AccessGuard_API.Repositories.Tenants;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Serilog;

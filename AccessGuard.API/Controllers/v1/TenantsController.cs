@@ -1,9 +1,9 @@
-﻿using AcessGuard_API.Models.Entity;
-using AcessGuard_API.Repositories.Tenants;
+﻿using AccessGuard_API.Models.Entity;
+using AccessGuard_API.Repositories.Tenants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AcessGuard_API.Controllers.v1
+namespace AccessGuard_API.Controllers.v1
 {
     [Route("v1/[controller]")]
     [ApiController]

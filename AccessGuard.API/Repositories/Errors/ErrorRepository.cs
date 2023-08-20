@@ -1,8 +1,8 @@
 ﻿using AccessGuard_API.Data;
-using AcessGuard_API.Models.Entity;
+using AccessGuard_API.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace AcessGuard_API.Repositories.Errors
+namespace AccessGuard_API.Repositories.Errors
 {
     public class ErrorRepository : IErrorRepository
     {

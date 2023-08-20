@@ -1,6 +1,6 @@
-﻿using AcessGuard_API.Models.Entity;
+﻿using AccessGuard_API.Models.Entity;
 
-namespace AcessGuard_API.Repositories.Errors
+namespace AccessGuard_API.Repositories.Errors
 {
     public interface IErrorRepository
     {

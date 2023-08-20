@@ -1,6 +1,6 @@
-﻿using AcessGuard_API.Models.Dto.Tenant;
+﻿using AccessGuard_API.Models.Dto.Tenant;
 
-namespace AcessGuard_API.Services.Tenants
+namespace AccessGuard_API.Services.Tenants
 {
     public interface ITenantService
     {

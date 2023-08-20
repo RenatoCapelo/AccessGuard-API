@@ -1,10 +1,10 @@
-﻿using AcessGuard_API.Exceptions;
-using AcessGuard_API.Models.Entity;
-using AcessGuard_API.Repositories.Errors;
+﻿using AccessGuard_API.Exceptions;
+using AccessGuard_API.Models.Entity;
+using AccessGuard_API.Repositories.Errors;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace AcessGuard_API.Middleware
+namespace AccessGuard_API.Middleware
 {
     public class AccessGuardExceptionMiddleware:IMiddleware
     {

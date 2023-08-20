@@ -262,7 +262,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("UsersOpenDoors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Error", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Error", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");

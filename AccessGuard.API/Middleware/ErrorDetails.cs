@@ -1,4 +1,4 @@
-﻿namespace AcessGuard_API.Middleware
+﻿namespace AccessGuard_API.Middleware
 {
     public class ErrorDetails
     {

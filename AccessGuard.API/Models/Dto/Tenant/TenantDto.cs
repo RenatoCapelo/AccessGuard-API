@@ -1,6 +1,6 @@
-﻿using AcessGuard_API.Models.Entity;
+﻿using AccessGuard_API.Models.Entity;
 
-namespace AcessGuard_API.Models.Dto.Tenant
+namespace AccessGuard_API.Models.Dto.Tenant
 {
     public class TenantDto
     {

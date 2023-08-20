@@ -1,5 +1,5 @@
 ﻿
-using AcessGuard_API.Repositories.Tenants;
+using AccessGuard_API.Repositories.Tenants;
 
 namespace AccessGuard.Tests.ServicesTests
 {

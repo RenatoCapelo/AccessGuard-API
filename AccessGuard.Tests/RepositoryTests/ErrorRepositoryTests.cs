@@ -1,4 +1,4 @@
-﻿using AcessGuard_API.Repositories.Errors;
+﻿using AccessGuard_API.Repositories.Errors;
 
 namespace AccessGuard.Tests.RepositoryTests
 {

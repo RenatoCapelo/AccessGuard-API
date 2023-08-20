@@ -1,4 +1,4 @@
-﻿namespace AcessGuard_API.Models.Dto.Tenant
+﻿namespace AccessGuard_API.Models.Dto.Tenant
 {
     public class TenantToCreateDTO
     {

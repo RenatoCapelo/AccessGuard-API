@@ -24,7 +24,7 @@ namespace AccessGuard_API.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Door", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Door", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +44,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Doors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Error", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Error", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -61,7 +61,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Errors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Location", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Location", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -81,7 +81,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Locations");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Logs", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Logs", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -113,7 +113,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Logs");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.LogType", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.LogType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -128,7 +128,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("LogTypes");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Permission", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Permission", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -143,7 +143,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Permissions");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.RoleHasPermissions", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.RoleHasPermissions", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -164,7 +164,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("RoleHasPermissions");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Tenant", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Tenant", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -179,7 +179,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("Tenants");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.TenantUser", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.TenantUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,7 +216,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("TenantUsers");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.TenantUserRole", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.TenantUserRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -231,7 +231,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("TenantUserRoles");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.UserHasRoles", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.UserHasRoles", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +252,7 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("UserHasRoles");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.UsersOpenDoors", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.UsersOpenDoors", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -279,9 +279,9 @@ namespace AccessGuard_API.Migrations
                     b.ToTable("UsersOpenDoors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Door", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Door", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.Location", "Location")
+                    b.HasOne("AccessGuard_API.Models.Entity.Location", "Location")
                         .WithMany("Doors")
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -290,9 +290,9 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Location", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Location", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.Tenant", "Tenant")
+                    b.HasOne("AccessGuard_API.Models.Entity.Tenant", "Tenant")
                         .WithMany("Locations")
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -301,15 +301,15 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("Tenant");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Logs", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Logs", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.LogType", "LogType")
+                    b.HasOne("AccessGuard_API.Models.Entity.LogType", "LogType")
                         .WithMany("Logs")
                         .HasForeignKey("LogTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AcessGuard_API.Models.Entity.TenantUser", "User")
+                    b.HasOne("AccessGuard_API.Models.Entity.TenantUser", "User")
                         .WithMany("LogsUser")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -320,15 +320,15 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.RoleHasPermissions", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.RoleHasPermissions", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.Permission", "Permission")
+                    b.HasOne("AccessGuard_API.Models.Entity.Permission", "Permission")
                         .WithMany()
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AcessGuard_API.Models.Entity.TenantUserRole", "Role")
+                    b.HasOne("AccessGuard_API.Models.Entity.TenantUserRole", "Role")
                         .WithMany("RoleHasPermissions")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -339,9 +339,9 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.TenantUser", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.TenantUser", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.Tenant", "Tenant")
+                    b.HasOne("AccessGuard_API.Models.Entity.Tenant", "Tenant")
                         .WithMany("TenantUsers")
                         .HasForeignKey("TenantId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -350,15 +350,15 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("Tenant");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.UserHasRoles", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.UserHasRoles", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.TenantUserRole", "Role")
+                    b.HasOne("AccessGuard_API.Models.Entity.TenantUserRole", "Role")
                         .WithMany("UserHasRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AcessGuard_API.Models.Entity.TenantUser", "User")
+                    b.HasOne("AccessGuard_API.Models.Entity.TenantUser", "User")
                         .WithMany("UserHasRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -369,15 +369,15 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.UsersOpenDoors", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.UsersOpenDoors", b =>
                 {
-                    b.HasOne("AcessGuard_API.Models.Entity.Door", "Door")
+                    b.HasOne("AccessGuard_API.Models.Entity.Door", "Door")
                         .WithMany()
                         .HasForeignKey("DoorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AcessGuard_API.Models.Entity.TenantUser", "User")
+                    b.HasOne("AccessGuard_API.Models.Entity.TenantUser", "User")
                         .WithMany("UsersOpenDoors")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -388,24 +388,24 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Location", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Location", b =>
                 {
                     b.Navigation("Doors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.LogType", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.LogType", b =>
                 {
                     b.Navigation("Logs");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.Tenant", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.Tenant", b =>
                 {
                     b.Navigation("Locations");
 
                     b.Navigation("TenantUsers");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.TenantUser", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.TenantUser", b =>
                 {
                     b.Navigation("LogsUser");
 
@@ -414,7 +414,7 @@ namespace AccessGuard_API.Migrations
                     b.Navigation("UsersOpenDoors");
                 });
 
-            modelBuilder.Entity("AcessGuard_API.Models.Entity.TenantUserRole", b =>
+            modelBuilder.Entity("AccessGuard_API.Models.Entity.TenantUserRole", b =>
                 {
                     b.Navigation("RoleHasPermissions");
 

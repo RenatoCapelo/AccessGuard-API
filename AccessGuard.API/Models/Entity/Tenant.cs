@@ -1,4 +1,4 @@
-﻿namespace AcessGuard_API.Models.Entity
+﻿namespace AccessGuard_API.Models.Entity
 {
     public class Tenant
     {

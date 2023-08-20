@@ -1,6 +1,6 @@
-﻿using AcessGuard_API.Models.Entity;
+﻿using AccessGuard_API.Models.Entity;
 
-namespace AcessGuard_API.Repositories.Tenants
+namespace AccessGuard_API.Repositories.Tenants
 {
     public interface ITenantRepository
     {

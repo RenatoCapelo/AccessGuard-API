@@ -1,4 +1,4 @@
-﻿namespace AcessGuard_API.Exceptions
+﻿namespace AccessGuard_API.Exceptions
 {
     public class AccessGuardException: Exception
     {

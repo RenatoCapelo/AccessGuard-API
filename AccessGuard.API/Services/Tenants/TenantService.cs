@@ -1,8 +1,8 @@
-﻿using AcessGuard_API.Exceptions;
-using AcessGuard_API.Models.Dto.Tenant;
-using AcessGuard_API.Repositories.Tenants;
+﻿using AccessGuard_API.Exceptions;
+using AccessGuard_API.Models.Dto.Tenant;
+using AccessGuard_API.Repositories.Tenants;
 
-namespace AcessGuard_API.Services.Tenants
+namespace AccessGuard_API.Services.Tenants
 {
     public class TenantService: ITenantService
     {

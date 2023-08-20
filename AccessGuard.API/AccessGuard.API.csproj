@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>AcessGuard_API</RootNamespace>
+    <RootNamespace>AccessGuard_API</RootNamespace>
     <UserSecretsId>881aaed7-8b82-4bc4-a2d3-d773e0ce9fbd</UserSecretsId>
   </PropertyGroup>
 
