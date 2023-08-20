@@ -1,5 +1,6 @@
 using AccessGuard_API.Data;
 using AcessGuard_API.Middleware;
+using AcessGuard_API.Repositories.Errors;
 using AcessGuard_API.Repositories.Tenants;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AccessGuardDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("AccessGuardDB")!));
 
 builder.Services.AddScoped<ITenantRepository,TenantRepository>();
+builder.Services.AddScoped<IErrorRepository,ErrorRepository>();
+
 builder.Services.AddTransient<AccessGuardExceptionMiddleware>();
 
 var app = builder.Build();

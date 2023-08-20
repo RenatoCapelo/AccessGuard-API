@@ -4,8 +4,8 @@ namespace AccessGuard.Tests.RepositoryTests
 {
     public class TenantRepositoryTests : IDisposable
     {
-        private AccessGuardDBContext _dbContext;
-        private TenantRepository _tenantRepository;
+        private readonly AccessGuardDBContext _dbContext;
+        private readonly TenantRepository _tenantRepository;
 
         private readonly DbConnection _connection;
 
@@ -58,7 +58,7 @@ namespace AccessGuard.Tests.RepositoryTests
         }
 
         [Fact]
-        public async void GetAllTenantsTest()
+        public async Task GetAllTenantsTest()
         {
             var tenants = await _tenantRepository.GetAll();
             Assert.Equal(2, tenants.Count);
