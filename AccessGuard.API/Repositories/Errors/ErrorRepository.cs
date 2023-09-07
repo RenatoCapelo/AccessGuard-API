@@ -11,9 +11,9 @@ namespace AccessGuard_API.Repositories.Errors
         {
             _dbContext = dbContext;
         }
-        public void CreateError(Error entity)
+        public async void CreateError(Error entity)
         {
-            _dbContext.Errors.Add(entity);
+            await _dbContext.Errors.AddAsync(entity);
         }
 
         public void DeleteError(Error entity)
@@ -27,9 +27,9 @@ namespace AccessGuard_API.Repositories.Errors
             return _dbContext.Errors.Find(Id);
         }
 
-        public async Task<IEnumerable<Error>> GetErrors()
+        public async Task<IEnumerable<Error>> GetErrors(int page=1, int pageSize = 25)
         {
-            return await _dbContext.Errors.ToListAsync();
+            return await _dbContext.Errors.Skip(pageSize*(page-1)).Take(pageSize).ToListAsync();
         }
 
         public void SaveChanges()
@@ -40,6 +40,11 @@ namespace AccessGuard_API.Repositories.Errors
         public void UpdateError(Error entity)
         {
             _dbContext.Errors.Update(entity);
+        }
+
+        public int Count()
+        {
+            return _dbContext.Errors.Count();
         }
     }
 }

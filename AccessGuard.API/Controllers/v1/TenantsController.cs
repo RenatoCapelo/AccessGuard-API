@@ -1,5 +1,7 @@
-﻿using AccessGuard_API.Models.Entity;
+﻿using AccessGuard_API.Models.Dto.Tenant;
+using AccessGuard_API.Models.Entity;
 using AccessGuard_API.Repositories.Tenants;
+using AccessGuard_API.Services.Tenants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,36 +11,36 @@ namespace AccessGuard_API.Controllers.v1
     [ApiController]
     public class TenantsController : ControllerBase
     {
-        private readonly ITenantRepository _tenantRepository;
+        private readonly ITenantService _tenantService;
 
-        public TenantsController(ITenantRepository tenantRepository)
+        public TenantsController(ITenantService tenantService)
         {
-            _tenantRepository = tenantRepository;
+            _tenantService = tenantService;
         }
+
         [HttpGet]
-        public async Task<ActionResult<List<Tenant>>> Get()
+        public async Task<IActionResult> GetAll(int page = 1, int pageSize = 25)
         {
-            return Ok(await _tenantRepository.GetAll());
+            return Ok(_tenantService.GetAll(page, pageSize));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get([FromRoute] Guid id)
+        {
+            return Ok(_tenantService.Get(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Tenant tenant)
+        public async Task<IActionResult> Post(TenantToCreateDTO tenant)
         {
-            _tenantRepository.Add(tenant);
-            _tenantRepository.SaveChanges();
+            _tenantService.Create(tenant);
             return Ok();
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(Tenant tenant)
+        public async Task<IActionResult> Put(TenantDto tenant)
         {
-            if (_tenantRepository.Get(tenant.Id) is null)
-            {
-                return BadRequest();
-            }
-            _tenantRepository.Update(tenant);
-            _tenantRepository.SaveChanges();
-            return Ok();
+            return Ok(_tenantService.Update(tenant));
         }
     }
 }

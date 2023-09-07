@@ -28,9 +28,9 @@ namespace AccessGuard_API.Repositories.Tenants
             return context.Tenants.Find(id);
         }
 
-        public async Task<List<Tenant>> GetAll()
+        public async Task<List<Tenant>> GetAll(int page = 1, int pageSize = 25)
         {
-            return await context.Tenants.ToListAsync();
+            return await context.Tenants.Skip(pageSize*(page-1)).Take(pageSize).ToListAsync();
         }
 
         public void Update(Tenant entity)
@@ -43,9 +43,8 @@ namespace AccessGuard_API.Repositories.Tenants
             context.SaveChanges();
         }
 
-        public Tenant? GetByIdForUser(Guid tenantId, Guid userId)
-        {
-            return context.Tenants.Where(tenant => tenant.TenantUsers != null && tenant.TenantUsers.Any(user => user.Id == userId)).FirstOrDefault(tenant => tenant.Id == tenantId);
+        public int Count() { 
+            return context.Tenants.Count();
         }
 
     }

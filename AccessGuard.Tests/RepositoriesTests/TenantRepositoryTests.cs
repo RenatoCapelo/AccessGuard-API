@@ -1,6 +1,6 @@
 using AccessGuard_API.Repositories.Tenants;
 
-namespace AccessGuard.Tests.RepositoryTests
+namespace AccessGuard.Tests.RepositoriesTests
 {
     public class TenantRepositoryTests : IDisposable
     {
@@ -51,21 +51,28 @@ namespace AccessGuard.Tests.RepositoryTests
         }
 
         [Fact]
-        public void GetTenantByIDTest()
+        public void GetTenantByID()
         {
             var tenant = _tenantRepository.Get(Guid.Parse("00000000-0000-0000-0000-000000000001"))!;
             Assert.Equal("TestTenant1", tenant.TenantName);
         }
 
         [Fact]
-        public async Task GetAllTenantsTest()
+        public void GetMissingTenantByID()
+        {
+            var tenant = _tenantRepository.Get(Guid.Parse("00000000-0000-0000-0000-000000000000"))!;
+            Assert.Null(tenant);
+        }
+
+        [Fact]
+        public async Task GetAllTenants()
         {
             var tenants = await _tenantRepository.GetAll();
             Assert.Equal(2, tenants.Count);
         }
 
         [Fact]
-        public void AddTenantTest()
+        public void AddTenant()
         {
             // Arrange
             var tenant = new Tenant()
@@ -85,7 +92,7 @@ namespace AccessGuard.Tests.RepositoryTests
         }
 
         [Fact]
-        public void UpdateTenantTest()
+        public void UpdateTenant()
         {
             // Arrange
             var tenant = new Tenant()
@@ -110,7 +117,7 @@ namespace AccessGuard.Tests.RepositoryTests
         }
 
         [Fact]
-        public void DeleteTenantTest()
+        public void DeleteTenant()
         {
             // Arrange
             var tenant = new Tenant()
@@ -131,21 +138,6 @@ namespace AccessGuard.Tests.RepositoryTests
             //Assert
             var tenantFromDbUpdated = _tenantRepository.Get(Guid.Parse("00000000-0000-0000-0000-000000000003"));
             Assert.Null(tenantFromDbUpdated);
-        }
-
-        [Fact]
-        public void GetTenantByIdForUserWithAccess()
-        {
-            var tenantFromDb = _tenantRepository.GetByIdForUser(Guid.Parse("00000000-0000-0000-0000-000000000001"), Guid.Parse("00000000-0000-0000-0000-000000000001"));
-            Assert.NotNull(tenantFromDb);
-            Assert.Equal("TestTenant1", tenantFromDb!.TenantName);
-        }
-
-        [Fact]
-        public void GetTenantByIdForUserWithoutAccess()
-        {
-            var tenantFromDb = _tenantRepository.GetByIdForUser(Guid.Parse("00000000-0000-0000-0000-000000000002"), Guid.Parse("00000000-0000-0000-0000-000000000001"));
-            Assert.Null(tenantFromDb);
         }
 
         public void Dispose()

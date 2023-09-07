@@ -1,6 +1,9 @@
 ﻿using AccessGuard_API.Exceptions;
+using AccessGuard_API.Models.Dto.Error;
+using AccessGuard_API.Models.Dto.Other;
 using AccessGuard_API.Models.Entity;
 using AccessGuard_API.Repositories.Errors;
+using AccessGuard_API.Services.Errors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,46 +13,42 @@ namespace AccessGuard_API.Controllers.v1
     [ApiController]
     public class ErrorsController : ControllerBase
     {
-        private readonly IErrorRepository _errorRepository;
-        public ErrorsController(IErrorRepository errorRepository)
+        private readonly IErrorsService _errorsService;
+        public ErrorsController(IErrorsService errorsService)
         {
-            _errorRepository = errorRepository;
+            _errorsService = errorsService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Error>>> GetAll()
+        public ActionResult<Paginator<ErrorDto>> GetAll([FromQuery] int page=1, [FromQuery]int pageSize=25)
         {
-            return Ok(await _errorRepository.GetErrors());
+            return Ok(_errorsService.GetAll(page,pageSize));
         }
 
         [HttpGet("{Id}")]
         public ActionResult<Error> GetById(string Id)
         {
-            Error? errorDb = _errorRepository.GetError(Id);
-            if (errorDb == null)
-            {
-                throw new AccessGuardException("errors-404");
-            }
-            return Ok(errorDb!);
+            return Ok(_errorsService.Get("Id"));
         }
 
         [HttpPost]
-        public IActionResult Post(Error error)
+        public IActionResult Post(ErrorDto error)
         {
-            _errorRepository.CreateError(error);
-            _errorRepository.SaveChanges();
+            _errorsService.Create(error);
             return CreatedAtAction(nameof(GetById), new {error.Id}, error);
         }
 
+        [HttpPut]
+        public IActionResult Put(ErrorDto error)
+        {
+            ErrorDto updatedError = _errorsService.Update(error);
+            return Ok(updatedError);
+        }
+        
         [HttpDelete]
         public IActionResult DeleteById(string Id)
         {
-            Error? errorDb = _errorRepository.GetError(Id);
-            if(errorDb == null)
-            {
-                throw new AccessGuardException("errors-404");
-            }
-            _errorRepository.DeleteError(errorDb);
+            _errorsService.Delete(Id);
             return NoContent();
         }
     }
